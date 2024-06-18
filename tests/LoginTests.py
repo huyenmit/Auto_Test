@@ -22,7 +22,6 @@ class MyTestCase(unittest.TestCase):
         self.drivers = webdriver.Chrome(chrome_options=option, executable_path="../drivers/chromedriver.exe")
         self.drivers.implicitly_wait(3)
 
-
         links = readDatatest.getLink('../linkFile.csv')
         for item in links:
             if item[0] == 'Login':
@@ -39,6 +38,6 @@ class MyTestCase(unittest.TestCase):
         self.expect = VerifyLogin(self.drivers).login()
         self.assertIn(self._dataTest[3], self.expect, "Login fail")
 
-    if __name__ == "__main__":
-        unittest.main(testRunner=HTMLTestRunner(output="reports"))
 
+if __name__ == "__main__":
+    unittest.main()
